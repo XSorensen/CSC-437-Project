@@ -1,5 +1,12 @@
 :root {
     /*Coloring Tokens*/
+    --color-base: 
+
+    /*
+     * #33466C
+     * #284373
+     * */
+
     --color-accent: rgb(42 143 42);
     --color-accent-inverted: rgb(255 208 0);
     --color-link: var(--color-accent);
@@ -8,7 +15,12 @@
     --color-text-inverted: rgb(255 255 255);
 
     /*Font Tokens*/
-    --default-font-text: ;
-    --default-font-header: ; 
-    --default-font-subheader: ;
+    --default-font-family-text: serif;
+    --default-font-family-header: sans-serif; 
+    --default-font-family-subheader: sans-serif;
+
+    --default-font-size-text: 14px;
+    --default-font-size-header: 30px;
+    --default-font-size-subheader: 24px;
+    
 }

@@ -1,2 +1,30 @@
-@import "./reset.css"
-@import "./tokens.css"
+@import "./reset.css";
+@import "./tokens.css";
+
+body {
+    background: radial-gradient(circle at center, blue 0,#284373 100%);
+    /*background-color: var(--color-base);*/
+}
+
+header {
+    font-family: var(--default-font-family-header);
+    font-size: var(--default-font-size-header);
+    color: var(--color-base);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--default-font-family-subheader);
+    font-size: var(--default-font-size-subheader);
+}
+
+p {
+    font-family: var(--default-font-family-text);
+    font-size: var(--default-font-size-text);
+}
+
+a {
+    font-family: var(--default-font-family-text);
+    font-size: var(--default-font-size-text);
+}
+
+
