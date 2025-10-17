@@ -12,3 +12,7 @@ img {
   max-width: 100%;
 }
 
+a[onclick] {
+    cursor: pointer;
+}
+
