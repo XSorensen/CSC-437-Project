@@ -61,6 +61,47 @@ a.home-button {
     padding: var(--default-padding);
 }
 
+svg.icon {
+    display: inline;
+    height: 125px;
+    width: 200px;
+    vertical-align: middle;
+    fill: currentColor;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+
+    vertical-align: middle;
+
+    & > li {
+        width: fit-content;
+        height: fit-content;
+
+        & > svg.icon {
+            height: 50px;
+            width: 50px;
+        }
+
+        & > a {
+            margin-left: -11px;
+        }
+    }
+}
+
+/* .links_wrapper {
+    display: flex;
+    flex-direction: row;
+    vertical-align: baseline;
+    gap: auto;
+    width:fit-content;
+
+    & > li {
+        list-style: none;
+    }
+} */
+
 .nav-box {
     display: flex;
 
