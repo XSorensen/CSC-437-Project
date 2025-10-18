@@ -1,0 +1,65 @@
+@import "./page.css";
+
+
+.move-page-content {
+    display: grid;
+    grid-template-columns: var(--page-grid-columns);
+    grid-template-rows: auto;
+    gap: 0;   
+    padding: 0 10%;
+
+    & > h1 {
+        grid-column: 1;
+    }
+
+    & > img {
+        grid-column: 3 / 5;
+    }
+
+    & > dl {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        row-gap: 0;
+        column-gap: inherit;
+
+        grid-column: 1 / -1;
+        grid-row-start: auto;
+    }
+}
+
+.pair {
+    display: grid;
+    grid-column: 1 / -1;
+    grid-template-columns: subgrid;
+    gap: inherit;
+    align-items: center;
+    border: 8px solid var(--color-accent);
+    padding: 0.5rem 0.75rem;
+    align-items: center;
+
+
+    /* & > * {
+        border: 5px solid var(--color-accent);
+    } */
+}
+
+dt {
+    grid-column: 1;
+    grid-row: 1 / -1;
+    font-family: var(--default-font-family-text);
+    font-size: var(--default-font-size-text);
+    font-weight: bold;
+
+    border-right: 2px solid var(--color-accent);
+    /* padding: 0.5rem 0.75rem;
+    padding-right: 0; */
+    
+}
+
+dd {
+    grid-column: 3;
+    font-family: var(--default-font-family-text);
+    font-size: var(--default-font-size-text);
+    /* padding: 0.5rem 0.75rem;
+    padding-left: 0; */
+}

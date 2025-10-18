@@ -14,19 +14,24 @@
     --color-text: rgb(51 51 51);
     --color-text-inverted: rgb(255 255 255);
 
-    --color-header-text: black;
+    --color-header-text: rgb(225, 232, 33);
     --color-header-stroke: white;
     --color-header-background: var(--color-accent);
 
     --color-background: #FFEBCD;
 
     /*Font Tokens*/
-    --default-font-family-text: serif;
-    --default-font-family-header: monospace, sans-serif; 
+    --default-font-family-text: "Stardos Stencil", serif;
+    --default-font-family-header: "Orbitron", monospace, sans-serif; 
     --default-font-family-subheader: var(--default-font-family-header);
 
     --default-font-size-text: 14px;
     --default-font-size-header: 30px;
     --default-font-size-subheader: 24px;
+
+    /*Page Grid Styling*/
+    --page-grid-columns: repeat(4, 1fr);
     
+    /*Padding Tokens*/
+    --default-padding: 5px 10px;
 }
