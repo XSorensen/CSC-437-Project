@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
     <head>
+        <meta charset="UTF-8"></meta>
         <link rel="stylesheet" href="/styles/page.css">
     </head>
 
@@ -11,24 +12,12 @@
             </a>
             <img src="/icons/default_user_icon.svg" alt="User Icon" width="50" height="50">
         </header>
-        <div>   
-        <h1>Select Target Game</h1>
-</div>
-        <div class="nav-box">
-            <div class="nav-box-entry">
-                <h2>Active Hunts</h2>
-            </div>
-            <div class="nav-box-entry">
-                <h2>Start New Hunt</h2>
-            </div>
-            <div class="nav-box-entry">
-                <h2>Find Individual Pokemon</h2>
-            </div>
-        </div>
+
+        <h1>Start New Hunt Page</h1>
 
         <form action="/new_hunt_page.html" method="get">
-        <label for="games">Select your target game:</label>
-        <select id="games" name="games">
+        <label for="target_game">Select your target game:</label>
+        <select id="target_game" name="target_game">
             <option value="Pokémon Red">Pokémon Red</option>
             <option value="Pokémon Green">Pokémon Green</option>
             <option value="Pokémon Blue">Pokémon Blue</option>
@@ -72,6 +61,26 @@
             <option value="Pokémon Violet">Pokémon Violet</option>
             <option value="Pokémon Z-A">Pokémon Z-A</option>
         </select>
+
+        <!-- Dropdown for hunt type 
+        <label for="hunt_type">Select hunt type:</label>
+        <select id="hunt_type" name="hunt_type">
+            <option value="Shiny Hunt">Shiny Hunt</option>
+            <option value="IV Hunt">IV Hunt</option>
+            <option value="Nature Hunt">Nature Hunt</option>
+            <option value="Ability Hunt">Ability Hunt</option>
+        </select>
+        -->
+        
+        <div class="owned_games_container">
+            <h2>Select the games you would like to use for this hunt:</h2>
+            <div class="owned_games_options">
+                <button type="button" class="owned_game
+
+
+            </div>
+        </div>
+
         <input type="submit">
         </form>
 
