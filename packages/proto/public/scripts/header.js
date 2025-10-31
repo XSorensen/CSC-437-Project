@@ -7,7 +7,8 @@ import {
     Events
 } from "@calpoly/mustang";
 
-import reset from "/styles/reset.css"
+import reset from "./styles/reset.css.js";
+import header from "./styles/header.css.js";
 
 export class HeaderElement extends HTMLElement {
     static template = html`<template>
@@ -16,9 +17,20 @@ export class HeaderElement extends HTMLElement {
                 Pokedex Completion Helper
             </a>
 
+        <label class='dark-mode-switch'>
+            <input type="checkbox" autocomplete="off"></input>
+            Dark Mode
+        </label>
+
             <img src="/icons/default_user_icon.svg" alt="User Icon" width="50" height="50">
         </header>
     </template>`;
+
+    static styles = css`
+        :host {
+            display:contents;
+        }
+    `;
 
     constructor() {
         super();
@@ -26,11 +38,12 @@ export class HeaderElement extends HTMLElement {
             .template(HeaderElement.template)
             .styles(
                 reset.styles,
+                header.styles,
                 HeaderElement.styles
             );
 
         const darkMode = this.shadowRoot.querySelector(
-            ".darkModeToggle"
+            ".dark-mode-switch"
         );
 
         darkMode.addEventListener('click', (event) => {
@@ -41,12 +54,21 @@ export class HeaderElement extends HTMLElement {
     }
 
     static initializeOnce() {
-        toggleDarkMode = (page, checked) => {
-            page.classList.toggle('dark-mode', checked);
+        const toggleDarkMode = (target, checked) => {
+            console.log(target);   
+            target.classList.toggle("dark-mode", checked);
+            // const customEvent = new CustomEvent(
+            //     "dark-mode:toggle", {
+            //         bubbles: true,
+            //         detail: {checked},
+            //     }
+            // );
+
+            // target.dispatchEvent(customEvent);
         }
 
         document.body.addEventListener('dark-mode', (event) => {
             toggleDarkMode(event.currentTarget, event.detail.checked);
-        })
+        });
     }
 }

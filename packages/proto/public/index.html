@@ -16,21 +16,36 @@
             }
         </script>
 
+        <script type="module">
+            import {define} from "@calpoly/mustang";
+            import {HeaderElement} from "/scripts/header.js";
+
+            define({
+                "pdx-header": HeaderElement
+            });
+
+            HeaderElement.initializeOnce();
+        </script>
     </head>
 
     <body>
-        <header>
+
+        <pdx-header>
+
+        </pdx-header>
+
+        <!-- <header>
             <a class="home-button" href="/">
                 Pokedex Completion Helper
             </a>
 
             <img src="/icons/default_user_icon.svg" alt="User Icon" width="50" height="50">
-        </header>
+        </header> -->
             <!-- onchange="
                 event.stopPropagation();
                 document.body.classList.toggle('dark-mode', event.target.checked);
             "> -->
-       <script>
+       <!-- <script>
             toggleDarkMode = (target, checked) => {
                 const customEvent = new CustomEvent(
                     "dark-mode:toggle", {
@@ -49,11 +64,11 @@
                     page.classList.toggle("dark-mode", page.checked)
                 }
             )
-        </script> 
-        <label id="darkModeToggle"
+        </script>  -->
+        <label class="dark-mode-switch"
             onchange="
             event.stopPropagation();
-            event.target.classList.toggle('dark-mode', event.target.checked);
+            // event.target.classList.toggle('dark-mode', event.target.checked);
             console.log('box changed');
             toggleDarkMode(
                 event,
