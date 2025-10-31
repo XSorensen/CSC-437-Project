@@ -13,16 +13,15 @@ import header from "./styles/header.css.js";
 export class HeaderElement extends HTMLElement {
     static template = html`<template>
         <header>
-            <a class="home-button" href="/">
-                Pokedex Completion Helper
-            </a>
+                <a class="home-button" href="/">
+                    Pokedex Completion Helper
+                </a>
+                <img src="/icons/default_user_icon.svg" alt="User Icon" width="50" height="50">
 
-        <label class='dark-mode-switch'>
-            <input type="checkbox" autocomplete="off"></input>
-            Dark Mode
-        </label>
-
-            <img src="/icons/default_user_icon.svg" alt="User Icon" width="50" height="50">
+            <label class='dark-mode-switch'>
+                <input type="checkbox" autocomplete="off"></input>
+                Dark Mode
+            </label>
         </header>
     </template>`;
 

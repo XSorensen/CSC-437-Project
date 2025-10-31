@@ -4,7 +4,7 @@ const styles = css`
     header {
         position: sticky;
         top: 0;
-    background-color: var(--color-header-background);
+        background-color: var(--color-header-background);
         stroke: var(--color-header-stroke);
         stroke-dashoffset: 5%;
 
@@ -19,14 +19,14 @@ const styles = css`
             width: fit-content
         }
 
-        /* & > a {
-            font-family: var(--default-font-family-header);
-            font-size: var(--default-font-size-header);
-            color:  var(--color-header-text);
+        & > a {
+            font-family:var(--default-font-family-header);
+            font-size:var(--default-font-size-header);
+            color:var(--color-header-text);
     
             text-decoration: none;
-            color: var(--color-header-text);
-        }    */
+            color:var(--color-header-text);
+        }
     }
 `;
 

@@ -7,13 +7,17 @@ body {
 }
 
 body.dark-mode {
-    background: var(--color-background-inverted);
+    --color-background: var(--color-background-inverted);
+    --color-header-background: var(--color-header-background-inverted);
+    --color-accent: var(--color-accent-inverted);
+    --color-link: var(--color-link-inverted);
+    --color-text: var(--color-text-inverted);
 }
 
 header {
     position: sticky;
     top: 0;
-   background-color: var(--color-header-background);
+    background-color: var(--color-header-background);
     stroke: var(--color-header-stroke);
     stroke-dashoffset: 5%;
 
@@ -90,6 +94,7 @@ ul {
 
         & > a {
             margin-left: -11px;
+            color: var(--color-link);
         }
     }
 }
@@ -126,8 +131,7 @@ ul {
         flex: 1;
         flex-grow: 1;
 
-
-        border: 2px solid var(--color-accent);
+        border: 5px solid var(--color-accent);
         border-radius: 20px;
         padding: 10px 20px;
         font-family: var(--default-font-family-text);
