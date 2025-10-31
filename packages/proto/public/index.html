@@ -7,6 +7,15 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Oswald:wght@200..700&family=Stardos+Stencil:wght@400;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="/styles/page.css">
+
+        <script type="importmap">
+            {
+                "imports": {
+                    "@calpoly/mustang": "https://unpkg.com/@calpoly/mustang"
+                }
+            }
+        </script>
+
     </head>
 
     <body>
@@ -17,7 +26,46 @@
 
             <img src="/icons/default_user_icon.svg" alt="User Icon" width="50" height="50">
         </header>
+            <!-- onchange="
+                event.stopPropagation();
+                document.body.classList.toggle('dark-mode', event.target.checked);
+            "> -->
+       <script>
+            toggleDarkMode = (target, checked) => {
+                const customEvent = new CustomEvent(
+                    "dark-mode:toggle", {
+                        bubbles: true,
+                        detail: {checked},
+                    }
+                );
+
+                target.dispatchEvent(customEvent)
+            }
+
+            document.body.addEventListener(
+                "dark-mode:toggle",
+                (event) => {
+                    const page = event.currentTarget;
+                    page.classList.toggle("dark-mode", page.checked)
+                }
+            )
+        </script> 
+        <label id="darkModeToggle"
+            onchange="
+            event.stopPropagation();
+            event.target.classList.toggle('dark-mode', event.target.checked);
+            console.log('box changed');
+            toggleDarkMode(
+                event,
+                'dark-mode',
+                {checked: event.target.checked}
+            );">
+            <input type="checkbox" autocomplete="off"></input>
+            Dark Mode
+        </label>
+
         
+
         <ul>
             <li>
                 <svg class="icon">
@@ -71,5 +119,25 @@
 
         <div style="height:3000px"></div>
 
+        <!-- Scripts -->
+        <!--
+        <script>
+            document.body.addEventListener('change', (event) => {
+                event.currentTarget.classList.toggle('dark-mode', event.target.checked);
+            })
+        </script>
+
+        <script>
+            const darkModeButton = document.getElementById('darkModeToggle');
+
+            console.log(darkModeButton);
+
+            handleClick = (event) => {
+            }
+
+            darkModeButton.addEventListener('click', handleClick);
+
+        </script>
+-->
     </body>
 </html>

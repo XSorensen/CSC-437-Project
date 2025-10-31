@@ -6,6 +6,10 @@ body {
     background: var(--color-background);
 }
 
+body.dark-mode {
+    background: var(--color-background-inverted);
+}
+
 header {
     position: sticky;
     top: 0;
