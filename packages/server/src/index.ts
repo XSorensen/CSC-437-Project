@@ -17,8 +17,10 @@ connect("prod");
 app.use(express.static(staticDir));
 app.use(express.json());
 
+const apiRoot = "/api";
+
 // Router APIs
-app.use("/api/arcraiders", arcraiders);
+app.use(`${apiRoot}/arcraiders`, arcraiders);
 
 // Other Routes
 app.get("/hello", (req: Request, res: Response) => {

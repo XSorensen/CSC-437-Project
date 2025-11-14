@@ -41,4 +41,19 @@ router.get("/:userid", (req, res) => {
   const { userid } = req.params;
   import_raider_svc.default.get(userid).then((arcraider) => res.json(arcraider)).catch((err) => res.status(404).send(err));
 });
+router.post("/", (req, res) => {
+  const newArcRaider = req.body;
+  import_raider_svc.default.create(newArcRaider).then(
+    (arcRaider) => res.status(201).json(arcRaider)
+  ).catch((err) => res.status(500).send(err));
+});
+router.put("/:userid", (req, res) => {
+  const { userid } = req.params;
+  const newArcRaider = req.body;
+  import_raider_svc.default.update(userid, newArcRaider).then((arcRaider) => res.json(arcRaider)).catch((_) => res.status(404).end());
+});
+router.delete("/:userid", (req, res) => {
+  const { userid } = req.params;
+  import_raider_svc.default.remove(userid).then(() => res.status(204).end()).catch((err) => res.status(404).send(err));
+});
 var arcraiders_default = router;

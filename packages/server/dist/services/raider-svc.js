@@ -45,4 +45,23 @@ function get(userid) {
   });
 }
 ;
-var raider_svc_default = { index, get };
+function create(json) {
+  const t = new ArcRaiderModel(json);
+  return t.save();
+}
+function update(userid, arcRaider) {
+  return ArcRaiderModel.findOneAndUpdate({ userid }, arcRaider, {
+    new: true
+  }).then((updated) => {
+    if (!updated) throw `${userid} not update`;
+    else return updated;
+  });
+}
+function remove(userid) {
+  return ArcRaiderModel.findOneAndDelete({ userid }).then(
+    (deleted) => {
+      if (!deleted) throw `${userid} not deleted`;
+    }
+  );
+}
+var raider_svc_default = { index, get, create, update, remove };

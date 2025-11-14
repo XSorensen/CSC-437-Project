@@ -30,7 +30,8 @@ const staticDir = process.env.STATIC || "public";
 (0, import_mongo.connect)("prod");
 app.use(import_express.default.static(staticDir));
 app.use(import_express.default.json());
-app.use("/api/arcraiders", import_arcraiders.default);
+const apiRoot = "/api";
+app.use(`${apiRoot}/arcraiders`, import_arcraiders.default);
 app.get("/hello", (req, res) => {
   res.send("Hello, World");
 });

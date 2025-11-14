@@ -28,4 +28,29 @@ function get(userid: String): Promise<ArcRaider> {
         });
 };
 
-export default {index, get}
+function create(json: ArcRaider): Promise<ArcRaider> {
+    const t = new ArcRaiderModel(json);
+    return t.save();
+}
+
+function update(
+    userid: String,
+    arcRaider: ArcRaider
+): Promise<ArcRaider> {
+    return ArcRaiderModel.findOneAndUpdate({userid}, arcRaider, {
+        new: true
+    }).then((updated) => {
+        if(!updated) throw `${userid} not update`;
+        else return updated as ArcRaider;
+    });
+}
+
+function remove(userid: String): Promise<void> {
+  return ArcRaiderModel.findOneAndDelete({ userid }).then(
+    (deleted) => {
+      if (!deleted) throw `${userid} not deleted`;
+    }
+  );
+}
+
+export default {index, get, create, update, remove}
