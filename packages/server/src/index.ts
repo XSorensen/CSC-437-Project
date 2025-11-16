@@ -7,7 +7,7 @@ import ArcRaiders from "./services/raider-svc";
 
 // Route Imports
 import arcraiders from "./routes/arcraiders";
-import auth from "./routes/auth";
+import auth, {authenticateUser} from "./routes/auth";
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -21,8 +21,8 @@ app.use(express.json());
 const apiRoot = "/api";
 
 // Router APIs
-app.use(`${apiRoot}/arcraiders`, arcraiders);
-app.use("/suth", auth);
+app.use(`${apiRoot}/arcraiders`, authenticateUser, arcraiders);
+app.use("/auth", auth);
 
 // Other Routes
 app.get("/hello", (req: Request, res: Response) => {
