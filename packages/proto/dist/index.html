@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Oswald:wght@200..700&family=Stardos+Stencil:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="/styles/page.css">
+
+
+
+        <script type="importmap">
+            {
+                "imports": {
+                    "@calpoly/mustang": "https://unpkg.com/@calpoly/mustang"
+                }
+            }
+        </script>
+      <script type="module" crossorigin src="/assets/index-4oze862Z.js"></script>
+    </head>
+
+    <body>
+        <pdx-header>
+        </pdx-header>
+
+        <form
+            method="POST"
+            action="/hunt"
+            enctype="multipart/form-data"
+        >
+            <input name="userid" value="docken"></input>
+        </form>
+
+        <mu-auth
+            provides="pdx:auth"    
+        >
+            <h2>User Login</h2>
+            <main class="card">
+                <login-form
+                api="/auth/login">
+                <label>
+                    <span>Username:</span>
+                    <input name="username"
+                    autocomplete="off" />
+                </label>
+                <label>
+                    <span>Password:</span>
+                    <input type="password"
+                    name="password" />
+                </label>
+                </login-form>
+                <p>Or did you want to
+                <a href="./newuser.html">
+                Sign up as a new user</a>?
+                </p>
+            </main>
+        </mu-auth>
+
+
+        <ul>
+            <li>
+                <svg class="icon">
+                    <use href="/icons/pokeballs.svg#icon-pokeball" />
+                </svg>
+                <a href="./generation.html">Generation Page</a>
+            </li>
+            <li>
+                <svg class="icon">
+                    <use href="/icons/pokeballs.svg#icon-pokeball" />
+                </svg>
+                <a href="./pokedexEntry.html">Pokedex Entry Page</a>
+            </li>
+            <li>
+                <svg class="icon">
+                    <use href="/icons/pokeballs.svg#icon-pokeball" />
+                </svg>
+                <a href="./pokedex.html">Pokedex Page</a>
+            </li>
+            <li>
+                <svg class="icon">
+                    <use href="/icons/pokeballs.svg#icon-pokeball" />
+                </svg>
+                <a href="./move.html">Move Page</a>
+            </li>
+            <li>
+                <svg class="icon">
+                    <use href="/icons/pokeballs.svg#icon-pokeball" />
+                </svg>
+                <a href="./region.html">Region Page</a>
+            </li>
+            <li>
+                <svg class="icon">
+                    <use href="/icons/pokeballs.svg#icon-pokeball" />
+                </svg>
+                <a href="./game.html">Game Page</a>
+            </li>
+        </ul>
+
+        <div class="nav-box">
+            <div class="nav-box-entry">
+                <a href="./active_hunts.html">Active Hunts</a>
+            </div>
+            <div class="nav-box-entry">
+                <a href="./new_hunt.html">Start New Hunt</a>
+            </div>
+            <div class="nav-box-entry">
+                <a href="./individual_target.html">Target Individual Pokemon</a>
+            </div>
+        </div>
+
+        <div style="height:3000px"></div>
+    </body>
+</html>

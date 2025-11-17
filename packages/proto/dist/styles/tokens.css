@@ -1,0 +1,39 @@
+:root {
+    /*Coloring Tokens*/
+    --color-base: #33466C; 
+
+    /*
+     * #33466C
+     * #284373
+     * */
+
+    --color-accent: rgb(42 143 42);
+    --color-accent-inverted: #3F05B7; /* rgb(213, 35, 143)*/
+    --color-link: var(--color-accent);
+    --color-link-inverted: white;
+    --color-text: rgb(51 51 51);
+    --color-text-inverted: rgb(254, 254, 254);
+
+    --color-header-text: rgb(225, 232, 33);
+    --color-header-stroke: white;
+    --color-header-background: var(--color-accent);
+    --color-header-background-inverted: var(--color-accent-inverted);
+
+    --color-background: #FFEBCD;
+    --color-background-inverted: #7744E0;
+
+    /*Font Tokens*/
+    --default-font-family-text:"Stardos Stencil",serif;
+    --default-font-family-header:"Orbitron",monospace,sans-serif; 
+    --default-font-family-subheader: var(--default-font-family-header);
+
+    --default-font-size-text: 14px;
+    --default-font-size-header: 30px;
+    --default-font-size-subheader: 24px;
+
+    /*Page Grid Styling*/
+    --page-grid-columns: repeat(4, 1fr);
+    
+    /*Padding Tokens*/
+    --default-padding: 5px 10px;
+}
