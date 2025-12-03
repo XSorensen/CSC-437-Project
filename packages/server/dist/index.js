@@ -22,6 +22,8 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
   mod
 ));
 var import_express = __toESM(require("express"));
+var import_promises = __toESM(require("node:fs/promises"));
+var import_path = __toESM(require("path"));
 var import_mongo = require("./services/mongo");
 var import_arcraiders = __toESM(require("./routes/arcraiders"));
 var import_auth = __toESM(require("./routes/auth"));
@@ -36,6 +38,12 @@ app.use(`${apiRoot}/arcraiders`, import_auth.authenticateUser, import_arcraiders
 app.use("/auth", import_auth.default);
 app.get("/hello", (req, res) => {
   res.send("Hello, World");
+});
+app.use("/app", (req, res) => {
+  const indexHtml = import_path.default.resolve(staticDir, "index.html");
+  import_promises.default.readFile(indexHtml, { encoding: "utf8" }).then((html) => {
+    res.send(html);
+  });
 });
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);

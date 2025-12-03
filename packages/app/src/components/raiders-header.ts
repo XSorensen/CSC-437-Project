@@ -10,9 +10,9 @@ import {
 import {css, html, LitElement} from "lit";
 import {state} from "lit/decorators.js";
 
-import reset from "./styles/reset.css.ts";
-import header from "./styles/header.css.ts";
-import page from "./styles/page.css.ts";
+import reset from "../styles/reset.css.ts";
+import header from "../styles/header.css.ts";
+import page from "../styles/page.css.ts";
 
 export class HeaderElement extends LitElement {
 
@@ -44,7 +44,7 @@ export class HeaderElement extends LitElement {
         }
     `];
 
-    _authObserver = new Observer<Auth.Model>(this, "pdx:auth")
+    _authObserver = new Observer<Auth.Model>(this, "raiders:auth")
     connectedCallback() {
         super.connectedCallback();
         this._authObserver.observe((auth: Auth.Model) => {
