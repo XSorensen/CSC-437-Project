@@ -2,9 +2,16 @@ import {
     Auth,
     define,
     History,
-    Switch
+    Switch,
+    Store
 } from "@calpoly/mustang";
-import {html, LitElement} from "lit";
+import {html} from "lit";
+
+import {Msg} from "./messages";
+import {Model, init} from "./model";
+import update from "./update";
+
+import { HomeViewElement } from "./views/home-view";
 import {HeaderElement} from "./components/raiders-header";
 
 const routes = [
@@ -29,6 +36,11 @@ define({
     "mu-switch": class AppSwitch extends Switch.Element {
         constructor() {
             super(routes, "raiders:history", "raiders:auth");
+        }
+    },
+    "mu-store": class AppStore extends Store.Provider<Model, Msg> {
+        constructor() {
+            super(update, init, "raiding:auth")
         }
     }
 });
