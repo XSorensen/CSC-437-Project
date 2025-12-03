@@ -1,0 +1,13 @@
+ 
+<svg xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <symbol id="icon-pokeball" viewBox="-5.0 -10.0 111.0 135.0">
+        <path d="m50.004 29.184c10.695 0 19.656 8.0234 20.699 18.609h-13.609c-0.92969-3.0234-3.7188-5.2383-7.0938-5.2383-3.3711 0-6.1602 2.2148-7.0938 5.2383h-13.605c1.1641-10.586 10.113-18.609 20.703-18.609zm0 16.512c2.4453 0 4.4219 1.8594 4.4219 4.3047s-1.9766 4.4219-4.4219 4.4219c-2.4414 0-4.3047-1.9766-4.3047-4.4219 0-2.4414 1.8594-4.3047 4.3047-4.3047zm20.695 6.5195c-1.0391 10.582-10 18.602-20.695 18.602-10.586 0-19.535-8.0234-20.703-18.605l13.609 0.003906c0.92969 3.0195 3.7188 5.2305 7.0938 5.2305s6.1602-2.2148 7.0938-5.2305z" fill-rule="evenodd"/>
+        <!-- <text x="0.0" y="117.5" font-size="5.0" font-weight="bold" font-family="Arbeit Regular, Helvetica, Arial-Unicode, Arial, Sans-serif" fill="#000000">Created by Analyticicon</text><text x="0.0" y="122.5" font-size="5.0" font-weight="bold" font-family="Arbeit Regular, Helvetica, Arial-Unicode, Arial, Sans-serif" fill="#000000">from Noun Project</text> -->
+    </symbol>
+
+    <!-- Icons go here -->
+  </defs>
+</svg>
+
+
