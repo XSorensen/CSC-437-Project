@@ -66,6 +66,9 @@ export function authenticateUser(
     const authHeader = req.headers["authorization"];
     const token = authHeader && authHeader.split(" ")[1];
 
+    // console.log(`Token: ${token}`)
+    // console.log(req.headers)
+
     if(!token) {
         res.status(401).end();
     } else {
