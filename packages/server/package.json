@@ -35,6 +35,8 @@
     "mongoose": "^8.19.3"
   },
   "exports": {
-    "./models": "./src/models/index.ts"
+    "./models": {
+        "import": "./src/models/index.ts"
+    }
   }
 }
