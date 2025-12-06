@@ -3,15 +3,15 @@ import { property, state } from "lit/decorators.js";
 import reset from "../styles/reset.css.js";
 import headings from "../styles/headings.css.js";
 
-interface LoginFormData {
+interface RegisterFormData {
   username?: string;
   password?: string;
 }
 
-export class LoginFormElement extends LitElement {
+export class RegisterFormElement extends LitElement {
 
   @state()
-  formData: LoginFormData = {};
+  formData: RegisterFormData = {};
 
   @property()
   api?: string;
@@ -38,7 +38,7 @@ export class LoginFormElement extends LitElement {
           <button
             ?disabled=${!this.canSubmit}
             type="submit">
-            <slot name="button-label">Login</slot>
+            <slot name="button-label">Register</slot>
           </button>
         </slot>
         <p class="error">${this.error}</p>
@@ -89,7 +89,7 @@ export class LoginFormElement extends LitElement {
       )
         .then((res) => {
           if (res.status !== 200 && res.status !== 201)
-            throw "Login failed";
+            throw "Registration failed";
           else return res.json();
         })
         .then((json: object) => {

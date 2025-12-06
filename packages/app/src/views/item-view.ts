@@ -17,23 +17,24 @@ export class ItemViewElement extends LitElement {
         "raiders:auth"
     );
 
-    _user = new Auth.User();
+    _user?: Auth.User;
+
+    get authorization(): HeadersInit {
+        return this._user?.authenticated ?
+                {Authorization: `Bearer ${(this._user as Auth.AuthenticatedUser).token}`} :
+                {}
+    }
 
     connectedCallback() {
         super.connectedCallback();
-        this._authObserver.observe(({user}) => {
-            if(user) {
-                this._user = user;
-            }
-
+        this._authObserver.observe((auth: Auth.Model) => {
+            this._user = auth.user;
             this.hydrate(this.src);
         })
     }
 
     hydrate(url: string) {
-        fetch(url, {
-            headers: Auth.headers(this._user)
-            })
+        fetch(url, {headers: this.authorization})
             .then((res: Response) => {
                 if (res.status === 200) return res.json();
                 throw `Server responded with status ${res.status}`;
