@@ -4,21 +4,32 @@ import {
     Dropdown,
     Events,
     Observer,
-    Auth
+    Auth,
+    View
 } from "@calpoly/mustang";
 
 import {css, html, LitElement} from "lit";
 import {state} from "lit/decorators.js";
 
+import { Model } from "../model.ts";
+import { Msg } from "../messages.ts";
+
+// styles
 import reset from "../styles/reset.css.ts";
 import header from "../styles/header.css.ts";
 import page from "../styles/page.css.ts";
 import headings from "../styles/headings.css.ts";
 
-export class HeaderElement extends LitElement {
+
+export class HeaderElement extends View<Model, Msg>{
 
     @state() loggedIn = false;
     @state() userid?: string;
+    @state() darkModeEnabled = false;
+
+    constructor() {
+        super("raiders:model");
+    }
 
     render() {
         return html`
@@ -29,7 +40,7 @@ export class HeaderElement extends LitElement {
                     <img src="/icons/default_user_icon.svg" alt="User Icon" width="50" height="50">
 
                 <label class='dark-mode-switch'>
-                    <input type="checkbox" autocomplete="off"></input>
+                    <input type="checkbox" @change=${this.toggleDarkMode} autocomplete=${this.darkModeEnabled ? "on" : "off"}"></input>
                     Dark Mode
                 </label>
                 <a slot="actuator">
@@ -88,13 +99,23 @@ export class HeaderElement extends LitElement {
     renderSignOutButton() {
         return html`
         <button
-            @click=${(e: UIEvent) => {
-                Events.relay(e, "auth:message", ["auth/signout"])
-            }}
+            @click=${this.signOut}
         >
             Sign Out
         </button>
         `;
+    }
+
+    toggleDarkMode(ev: InputEvent){
+        const target = ev.target as HTMLInputElement;
+        const checked = target.checked;
+        this.darkModeEnabled = checked;
+
+        Events.relay(ev, "dark-mode", { checked });
+    }
+
+    signOut(ev: MouseEvent) {
+        Events.relay(ev, "auth:message", ["auth/signout"]);
     }
 
     static initializeOnce() {
