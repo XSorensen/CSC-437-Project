@@ -1,9 +1,13 @@
+import {Auth, Observer} from "@calpoly/mustang";
 import {css, html, LitElement} from "lit";
+import {state} from "lit/decorators.js";
 
 import reset from "../styles/reset.css";
 import page from "../styles/page.css";
 
 export class HomeViewElement extends LitElement {
+    src = "/api/"
+
     render() {
         return html`
         <ul>

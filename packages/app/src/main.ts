@@ -5,7 +5,7 @@ import {
     Switch,
     Store
 } from "@calpoly/mustang";
-import {html} from "lit";
+import {html, LitElement} from "lit";
 
 import {Msg} from "./messages";
 import {Model, init} from "./model";
@@ -13,21 +13,37 @@ import update from "./update";
 
 import { HomeViewElement } from "./views/home-view";
 import {HeaderElement} from "./components/raiders-header";
+import { ItemViewElement } from "./views/item-view";
 
-const routes = [
+const routes: Switch.Route[] = [
     {
         path: "/app",
-        view: () => html`<landing-view></landing-view>`
+        view: () => html`<home-view></home-view>`
     },
     {
         path: "/",
         redirect: "/app"
     },
     {
+        path: "/app/items/",
+        view: (params: Switch.Params) => html`<item-view></item-view>`
+    },
+    {
         path: "/app/items/:id",
         view: (params: Switch.Params) => html`<item-view item-id=${params.id}></item-view>`
     }
 ];
+
+class AppElement extends LitElement {
+  render() {
+    return html`<mu-switch></mu-switch>`;
+  }
+
+  connectedCallback() {
+    super.connectedCallback();
+    HeaderElement.initializeOnce();
+  }
+}
 
 define({
     "mu-auth": Auth.Provider,
@@ -40,7 +56,15 @@ define({
     },
     "mu-store": class AppStore extends Store.Provider<Model, Msg> {
         constructor() {
-            super(update, init, "raiding:auth")
+            super(update, init, "raiders:auth")
         }
-    }
+    },
+
+    "raiders-app": AppElement,
+
+    // views
+    "home-view": HomeViewElement,
+    "item-view": ItemViewElement
 });
+
+HeaderElement.initializeOnce();
