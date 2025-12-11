@@ -1,4 +1,4 @@
-import{a as p,i as h,b as x,x as n,r as m,V as b,O as D,h as R,e as w,c,n as $,d as z,s as S,_ as M,f as q}from"./headings.css-CrszazWd.js";const F={};function E(s,t,e){const[i,a]=s;switch(i){case"profile/request":{const{userid:r}=a;if(t.profile?.userid===r)break;return[{...t,profile:{userid:r}},L(a,e).then(o=>["profile/load",{userid:r,profile:o}])]}case"profile/load":{const{profile:r}=a;return{...t,profile:r}}case"dark-mode":{const{darkModeEnabled:r}=a;return{...t,darkModeEnabled:r}}case"items/request":{if(t?.itemsList)break;return[{...t,itemsList:[]},A({},e).then(r=>["items/load",{itemsList:r}])]}case"items/load":{const{itemsList:r}=a;return{...t,itemsList:r}}default:throw new Error(`Unhandled Auth message "${i}"`)}return t}function L(s,t){return fetch(`/api/ar_raiders/${s.userid}`,{headers:p.headers(t)}).then(e=>{if(e.status===200)return e.json()}).then(e=>{if(e)return console.log("Profile:",e),e;throw"No JSON in response body"})}function A(s,t){return fetch("/api/items/",{headers:p.headers(t)}).then(e=>{if(e.status===200)return e.json()}).then(e=>{if(e)return console.log("Items:",e),e;throw"No JSON in response body"})}const B=h`
+import{a as p,i as h,b as x,x as n,r as m,V as b,O as D,h as R,e as _,c as d,n as $,d as z,s as S,_ as M,f as q}from"./headings.css-CrszazWd.js";const E={};function F(s,t,e){const[i,a]=s;switch(i){case"profile/request":{const{userid:r}=a;if(t.profile?.userid===r)break;return[{...t,profile:{userid:r}},L(a,e).then(o=>["profile/load",{userid:r,profile:o}])]}case"profile/load":{const{profile:r}=a;return{...t,profile:r}}case"dark-mode":{const{darkModeEnabled:r}=a;return{...t,darkModeEnabled:r}}case"items/request":{if(t?.itemsList)break;return[{...t,itemsList:[]},A({},e).then(r=>["items/load",{itemsList:r}])]}case"items/load":{const{itemsList:r}=a;return{...t,itemsList:r}}default:throw new Error(`Unhandled Auth message "${i}"`)}return t}function L(s,t){return fetch(`/api/ar_raiders/${s.userid}`,{headers:p.headers(t)}).then(e=>{if(e.status===200)return e.json()}).then(e=>{if(e)return console.log("Profile:",e),e;throw"No JSON in response body"})}function A(s,t){return fetch("/api/items/",{headers:p.headers(t)}).then(e=>{if(e.status===200)return e.json()}).then(e=>{if(e)return console.log("Items:",e),e;throw"No JSON in response body"})}const B=h`
     @import "./reset.css";
     @import "./tokens.css";
 
@@ -201,13 +201,16 @@ import{a as p,i as h,b as x,x as n,r as m,V as b,O as D,h as R,e as w,c,n as $,d
         --->
 
         <h3>Project Description</h3>
-        <p>Arc Raiders is a new video game which tasks players to journey onto the hostile surface in search of loot. 
-        While on the surface, raiders must scavenge appartment buildings and water treatment facilities while avoiding being taken out by
-        the surface robots or even other players. The game is very focused on the items you collect, but there are so 
-        many items to collect that it can be difficult to keep track of which ones are important. Also, seemlingly innccuous items like the "Rusted Gear"
-        appear useless until they are need to upgrade your workstation. This website seeks to supply a helpful interface that provides quick item filtering 
-        along with item tracking in the future. Currently, all links below lead to the /app/items page where you can view all items in the game,
-        or filter them down to a more manageable list</p>
+        <p>
+            <a href="https://arcraiders.com/">Arc Raiders</a> is a new video game in which players brave the hostile Earth's surface populated only 
+            with deadly robots and other raiders. While on the surface, raiders must scavenge appartment buildings, sand buried towns, 
+            and water treatment facilities while avoiding being taken out by the surface robots or even other players. The game is very 
+            focused on the items you collect. However, because there are so many items to collect that are often useless after you have
+            used them for their intended purpose, it can be difficult to keep track of which ones are important. Also, seemlingly 
+            innccuous items like the "Rusted Gear" appear useless until they are needed to upgrade your workstation. This website 
+            seeks to supply a helpful interface that provides quick item filtering along with item tracking in the future. Currently, all links 
+            below lead to the /app/items page where you can view all items in the game, or filter them down to a more manageable list.
+        </p>
 
         <div class="nav-box">
             <div class="nav-box-entry">
@@ -227,7 +230,7 @@ import{a as p,i as h,b as x,x as n,r as m,V as b,O as D,h as R,e as w,c,n as $,d
         :host {
             display:contents;
         }
-        `];let u=y;const j=h`
+        `];let u=y;const W=h`
     header {
         position: sticky;
         top: 0;
@@ -255,7 +258,7 @@ import{a as p,i as h,b as x,x as n,r as m,V as b,O as D,h as R,e as w,c,n as $,d
             color:var(--color-header-text);
         }
     }
-`,W={styles:j};var N=Object.defineProperty,T=Object.getOwnPropertyDescriptor,f=(s,t,e,i)=>{for(var a=i>1?void 0:i?T(t,e):t,r=s.length-1,o;r>=0;r--)(o=s[r])&&(a=(i?o(t,e,a):o(a))||a);return i&&a&&N(t,e,a),a};const k=class k extends b{constructor(){super("raiders:model"),this.loggedIn=!1,this.userid="raider",this.darkModeEnabled=!1,this._authObserver=new D(this,"raiders:auth")}get profile(){return this.model.profile}render(){const{userid:t}=this.profile||{};return console.log(this.profile),console.log(this.model),n`
+`,j={styles:W};var N=Object.defineProperty,T=Object.getOwnPropertyDescriptor,f=(s,t,e,i)=>{for(var a=i>1?void 0:i?T(t,e):t,r=s.length-1,o;r>=0;r--)(o=s[r])&&(a=(i?o(t,e,a):o(a))||a);return i&&a&&N(t,e,a),a};const k=class k extends b{constructor(){super("raiders:model"),this.loggedIn=!1,this.userid="raider",this.darkModeEnabled=!1,this._authObserver=new D(this,"raiders:auth")}get profile(){return this.model.profile}render(){const{userid:t}=this.profile||{};return console.log(this.profile),console.log(this.model),n`
             <header>
                 <a class="home-button" href="/">
                     Arc Raiders Field Guide
@@ -282,16 +285,16 @@ import{a as p,i as h,b as x,x as n,r as m,V as b,O as D,h as R,e as w,c,n as $,d
         >
             Sign Out
         </button>
-        `}toggleDarkMode(t){const i=t.target.checked;this.darkModeEnabled=i,w.relay(t,"dark-mode",{checked:i})}signOut(t){w.relay(t,"auth:message",["auth/signout"])}static initializeOnce(){const t=(e,i)=>{e?.classList.toggle("dark-mode",i)};document.body.addEventListener("dark-mode",e=>{t(e.currentTarget,e.detail.checked)}),console.log("Header Initialized")}};k.styles=[m.styles,W.styles,R.styles,h`
+        `}toggleDarkMode(t){const i=t.target.checked;this.darkModeEnabled=i,_.relay(t,"dark-mode",{checked:i})}signOut(t){_.relay(t,"auth:message",["auth/signout"])}static initializeOnce(){const t=(e,i)=>{e?.classList.toggle("dark-mode",i)};document.body.addEventListener("dark-mode",e=>{t(e.currentTarget,e.detail.checked)}),console.log("Header Initialized")}};k.styles=[m.styles,j.styles,R.styles,h`
         :host {
             display: block;
             width: 100%;
             height: var(--header-height, 64px);
         }
-        `];let l=k;f([c()],l.prototype,"loggedIn",2);f([c()],l.prototype,"userid",2);f([c()],l.prototype,"darkModeEnabled",2);f([c()],l.prototype,"profile",1);var U=Object.defineProperty,G=Object.getOwnPropertyDescriptor,O=(s,t,e,i)=>{for(var a=i>1?void 0:i?G(t,e):t,r=s.length-1,o;r>=0;r--)(o=s[r])&&(a=(i?o(t,e,a):o(a))||a);return i&&a&&U(t,e,a),a};class v extends b{get profile(){return this.model.profile}constructor(){super("raiders:model")}render(){return n`
+        `];let l=k;f([d()],l.prototype,"loggedIn",2);f([d()],l.prototype,"userid",2);f([d()],l.prototype,"darkModeEnabled",2);f([d()],l.prototype,"profile",1);var U=Object.defineProperty,G=Object.getOwnPropertyDescriptor,O=(s,t,e,i)=>{for(var a=i>1?void 0:i?G(t,e):t,r=s.length-1,o;r>=0;r--)(o=s[r])&&(a=(i?o(t,e,a):o(a))||a);return i&&a&&U(t,e,a),a};class v extends b{get profile(){return this.model.profile}constructor(){super("raiders:model")}render(){return n`
             <h2>Arc Raider Profile</h2>
             <p>Name: ${this.userId}</p>
-        `}attributeChangedCallback(t,e,i){super.attributeChangedCallback(t,e,i),t==="user-id"&&e!==i&&i&&this.dispatchMessage(["profile/request",{userid:i}])}get src(){return`/api/arcraiders/${this.userId}`}}O([$({attribute:"user-id"})],v.prototype,"userId",2);O([c()],v.prototype,"profile",1);const J=h`
+        `}attributeChangedCallback(t,e,i){super.attributeChangedCallback(t,e,i),t==="user-id"&&e!==i&&i&&this.dispatchMessage(["profile/request",{userid:i}])}get src(){return`/api/arcraiders/${this.userId}`}}O([$({attribute:"user-id"})],v.prototype,"userId",2);O([d()],v.prototype,"profile",1);const J=h`
     .items-list dl {
         display: grid;
         gap: 1rem;
@@ -313,7 +316,7 @@ import{a as p,i as h,b as x,x as n,r as m,V as b,O as D,h as R,e as w,c,n as $,d
             font-color: var(--color-text);
         }
     }
-`,K={styles:J};var Q=Object.defineProperty,X=Object.getOwnPropertyDescriptor,g=(s,t,e,i)=>{for(var a=i>1?void 0:i?X(t,e):t,r=s.length-1,o;r>=0;r--)(o=s[r])&&(a=(i?o(t,e,a):o(a))||a);return i&&a&&Q(t,e,a),a};const _=class _ extends b{constructor(){super("raiders:model"),this.src="/api/items",this.formData={},this._authObserver=new D(this,"raiders:auth")}get itemIndex(){return this.filterItems(this.model.itemsList)}connectedCallback(){console.log("Connected Callback Called"),super.connectedCallback(),this._authObserver.observe(({user:t})=>{t?.authenticated&&this.dispatchMessage(["items/request",{}])})}render(){const t=this.itemIndex?.map(this.renderItem),e=this.renderWorkshopFilters(),i=this.renderRarityFilters();return n`
+`,H={styles:J};var K=Object.defineProperty,Q=Object.getOwnPropertyDescriptor,g=(s,t,e,i)=>{for(var a=i>1?void 0:i?Q(t,e):t,r=s.length-1,o;r>=0;r--)(o=s[r])&&(a=(i?o(t,e,a):o(a))||a);return i&&a&&K(t,e,a),a};const w=class w extends b{constructor(){super("raiders:model"),this.src="/api/items",this.formData={},this._authObserver=new D(this,"raiders:auth")}get itemIndex(){return this.filterItems(this.model.itemsList)}connectedCallback(){console.log("Connected Callback Called"),super.connectedCallback(),this._authObserver.observe(({user:t})=>{t?.authenticated&&this.dispatchMessage(["items/request",{}])})}render(){const t=this.itemIndex?.map(this.renderItem),e=this.renderWorkshopFilters(),i=this.renderRarityFilters();return n`
             <main class="page">
                 <header>
                     <h2>Items</h2>
@@ -363,8 +366,8 @@ import{a as p,i as h,b as x,x as n,r as m,V as b,O as D,h as R,e as w,c,n as $,d
                 <dd>${P}</dd>
                 <dd>${C}</dd>
             </div>
-        `}filterItems(t){if(!t)return t;console.log("Running filter");let e=t;this.formData?.name_search&&this.formData.name_search!==""&&(e=e.filter(r=>r.name.includes(this.formData.name_search)));const i=[this.formData?.rarity_common?"Common":void 0,this.formData?.rarity_uncommon?"Uncommon":void 0,this.formData?.rarity_rare?"Rare":void 0,this.formData?.rarity_epic?"Epic":void 0,this.formData?.rarity_legendary?"Legendary":void 0].filter(r=>r!==void 0);i.length&&(e=e.filter(r=>{if(!r.rarity)return!1;for(const o of i)if(r.rarity.includes(o))return!0;return!1}));const a=[this.formData?.wkbch_refiner?"Ref":void 0,this.formData?.wkbch_medical?"Med":void 0,this.formData?.wkbch_explosive?"Exp":void 0,this.formData?.wkbch_equipment?"Equ":void 0,this.formData?.wkbch_basic?"Bas":void 0,this.formData?.wkbch_utility?"Ut":void 0,this.formData?.wkbch_weapon?"Wea":void 0,this.formData?.wkbch_gunsmith?"Gun":void 0].filter(r=>r!==void 0);return a.length&&(e=e.filter(r=>{if(!r.workbench)return!1;for(const o of a)if(r.workbench.includes(o))return!0;return!1})),console.log("Filtered Benches"),console.log(e),e}handleChange(t){const e=t.target,i=e?.name,a=e?.value,r=e?.checked,o=this.formData;switch(console.log("Hanlding change"),console.log(t.target),i){case"name_search":{this.formData={...o,name_search:a};break}case"wkbch_refiner":{this.formData={...o,wkbch_refiner:r};break}case"wkbch_medical":{this.formData={...o,wkbch_medical:r};break}case"wkbch_explosive":{this.formData={...o,wkbch_explosive:r};break}case"wkbch_equipment":{this.formData={...o,wkbch_equipment:r};break}case"wkbch_basic":{this.formData={...o,wkbch_basic:r};break}case"wkbch_utility":{this.formData={...o,wkbch_utility:r};break}case"wkbch_weapon":{this.formData={...o,wkbch_weapon:r};break}case"wkbch_gunsmith":{this.formData={...o,wkbch_gunsmith:r};break}case"rarity_common":{this.formData={...o,rarity_common:r};break}case"rarity_uncommon":{this.formData={...o,rarity_uncommon:r};break}case"rarity_rare":{this.formData={...o,rarity_rare:r};break}case"rarity_epic":{this.formData={...o,rarity_epic:r};break}case"rarity_legendary":{this.formData={...o,rarity_legendary:r};break}default:throw`Unhandled change event target ${i}`}}handleSubmit(t){t.preventDefault(),console.log("Attempting to submit")}handleReset(t){console.log(t),this.formData={}}};_.styles=[m.styles,K.styles,I.styles,h`
+        `}filterItems(t){if(!t)return t;console.log("Running filter");let e=t;this.formData?.name_search&&this.formData.name_search!==""&&(e=e.filter(r=>r.name.includes(this.formData.name_search)));const i=[this.formData?.rarity_common?"Common":void 0,this.formData?.rarity_uncommon?"Uncommon":void 0,this.formData?.rarity_rare?"Rare":void 0,this.formData?.rarity_epic?"Epic":void 0,this.formData?.rarity_legendary?"Legendary":void 0].filter(r=>r!==void 0);i.length&&(e=e.filter(r=>{if(!r.rarity)return!1;for(const o of i)if(r.rarity.includes(o))return!0;return!1}));const a=[this.formData?.wkbch_refiner?"Ref":void 0,this.formData?.wkbch_medical?"Med":void 0,this.formData?.wkbch_explosive?"Exp":void 0,this.formData?.wkbch_equipment?"Equ":void 0,this.formData?.wkbch_basic?"Bas":void 0,this.formData?.wkbch_utility?"Ut":void 0,this.formData?.wkbch_weapon?"Wea":void 0,this.formData?.wkbch_gunsmith?"Gun":void 0].filter(r=>r!==void 0);return a.length&&(e=e.filter(r=>{if(!r.workbench)return!1;for(const o of a)if(r.workbench.includes(o))return!0;return!1})),console.log("Filtered Benches"),console.log(e),e}handleChange(t){const e=t.target,i=e?.name,a=e?.value,r=e?.checked,o=this.formData;switch(console.log("Hanlding change"),console.log(t.target),i){case"name_search":{this.formData={...o,name_search:a};break}case"wkbch_refiner":{this.formData={...o,wkbch_refiner:r};break}case"wkbch_medical":{this.formData={...o,wkbch_medical:r};break}case"wkbch_explosive":{this.formData={...o,wkbch_explosive:r};break}case"wkbch_equipment":{this.formData={...o,wkbch_equipment:r};break}case"wkbch_basic":{this.formData={...o,wkbch_basic:r};break}case"wkbch_utility":{this.formData={...o,wkbch_utility:r};break}case"wkbch_weapon":{this.formData={...o,wkbch_weapon:r};break}case"wkbch_gunsmith":{this.formData={...o,wkbch_gunsmith:r};break}case"rarity_common":{this.formData={...o,rarity_common:r};break}case"rarity_uncommon":{this.formData={...o,rarity_uncommon:r};break}case"rarity_rare":{this.formData={...o,rarity_rare:r};break}case"rarity_epic":{this.formData={...o,rarity_epic:r};break}case"rarity_legendary":{this.formData={...o,rarity_legendary:r};break}default:throw`Unhandled change event target ${i}`}}handleSubmit(t){t.preventDefault(),console.log("Attempting to submit")}handleReset(t){console.log(t),this.formData={}}};w.styles=[m.styles,H.styles,I.styles,h`
         :host {
             display:contents;
         }
-        `];let d=_;g([c()],d.prototype,"itemIndex",1);g([$({attribute:"item-id"})],d.prototype,"itemId",2);g([c()],d.prototype,"formData",2);const Y=[{path:"/app",view:()=>n`<home-view></home-view>`},{path:"/",redirect:"/app"},{path:"/app/items",view:()=>n`<item-view></item-view>`},{path:"/app/items/:id",view:s=>n`<item-view item-id=${s.id}></item-view>`},{path:"/app/profile/:id",view:s=>n`<profile-view user-id="${s.id}></profile-view>`}];class Z extends x{render(){return n`<mu-switch></mu-switch>`}connectedCallback(){super.connectedCallback(),l.initializeOnce()}}z({"mu-auth":p.Provider,"mu-history":q.Provider,"raiders-header":l,"mu-switch":class extends M.Element{constructor(){super(Y,"raiders:history","raiders:auth")}},"mu-store":class extends S.Provider{constructor(){super(E,F,"raiders:auth")}},"raiders-app":Z,"home-view":u,"profile-view":v,"item-view":d});l.initializeOnce();
+        `];let c=w;g([d()],c.prototype,"itemIndex",1);g([$({attribute:"item-id"})],c.prototype,"itemId",2);g([d()],c.prototype,"formData",2);const X=[{path:"/app",view:()=>n`<home-view></home-view>`},{path:"/",redirect:"/app"},{path:"/app/items",view:()=>n`<item-view></item-view>`},{path:"/app/items/:id",view:s=>n`<item-view item-id=${s.id}></item-view>`},{path:"/app/profile/:id",view:s=>n`<profile-view user-id="${s.id}></profile-view>`}];class Y extends x{render(){return n`<mu-switch></mu-switch>`}connectedCallback(){super.connectedCallback(),l.initializeOnce()}}z({"mu-auth":p.Provider,"mu-history":q.Provider,"raiders-header":l,"mu-switch":class extends M.Element{constructor(){super(X,"raiders:history","raiders:auth")}},"mu-store":class extends S.Provider{constructor(){super(F,E,"raiders:auth")}},"raiders-app":Y,"home-view":u,"profile-view":v,"item-view":c});l.initializeOnce();

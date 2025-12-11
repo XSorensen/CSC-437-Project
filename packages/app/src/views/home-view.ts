@@ -52,13 +52,16 @@ export class HomeViewElement extends LitElement {
         --->
 
         <h3>Project Description</h3>
-        <p>Arc Raiders is a new video game which tasks players to journey onto the hostile surface in search of loot. 
-        While on the surface, raiders must scavenge appartment buildings and water treatment facilities while avoiding being taken out by
-        the surface robots or even other players. The game is very focused on the items you collect, but there are so 
-        many items to collect that it can be difficult to keep track of which ones are important. Also, seemlingly innccuous items like the "Rusted Gear"
-        appear useless until they are need to upgrade your workstation. This website seeks to supply a helpful interface that provides quick item filtering 
-        along with item tracking in the future. Currently, all links below lead to the /app/items page where you can view all items in the game,
-        or filter them down to a more manageable list</p>
+        <p>
+            <a href="https://arcraiders.com/">Arc Raiders</a> is a new video game in which players brave the hostile Earth's surface populated only 
+            with deadly robots and other raiders. While on the surface, raiders must scavenge appartment buildings, sand buried towns, 
+            and water treatment facilities while avoiding being taken out by the surface robots or even other players. The game is very 
+            focused on the items you collect. However, because there are so many items to collect that are often useless after you have
+            used them for their intended purpose, it can be difficult to keep track of which ones are important. Also, seemlingly 
+            innccuous items like the "Rusted Gear" appear useless until they are needed to upgrade your workstation. This website 
+            seeks to supply a helpful interface that provides quick item filtering along with item tracking in the future. Currently, all links 
+            below lead to the /app/items page where you can view all items in the game, or filter them down to a more manageable list.
+        </p>
 
         <div class="nav-box">
             <div class="nav-box-entry">
