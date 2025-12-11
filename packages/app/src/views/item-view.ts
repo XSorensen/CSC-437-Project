@@ -13,7 +13,9 @@ export class ItemViewElement extends View<Model, Msg>{
     src = "/api/items"
 
     @state()
-    itemIndex = new Array<Item>();
+    get itemIndex(): Array<Item> | undefined {
+        return this.model.itemsList;
+    }
 
     @property({attribute: "item-id"})
     itemId?: string
@@ -22,14 +24,6 @@ export class ItemViewElement extends View<Model, Msg>{
         this,
         "raiders:auth"
     );
-
-    _user?: Auth.User;
-
-    get authorization(): HeadersInit {
-        return this._user?.authenticated ?
-                {Authorization: `Bearer ${(this._user as Auth.AuthenticatedUser).token}`} :
-                {}
-    }
 
     constructor() {
         super("raiders:model");
@@ -40,37 +34,9 @@ export class ItemViewElement extends View<Model, Msg>{
         super.connectedCallback();
         this._authObserver.observe(({ user }) => {
             if(user?.authenticated) {
-                this._user = user;
                 this.dispatchMessage(["items/request", {}]);
-            } else {
-                this._user = undefined;
             }
-        
-            /*
-            if(this.itemId) {
-                this.hydrate(`${this.src}/${this.itemId}`);
-            } else {
-                this.hydrate(this.src);
-            }
-                */
         })
-    }
-
-    hydrate(url: string) {
-        fetch(url, {headers: this.authorization})
-            .then((res: Response) => {
-                if (res.status === 200) return res.json();
-                throw `Server responded with status ${res.status}`;
-            })
-            .catch((err) => console.log("Failed to load item data", err))
-            .then((json: unknown) => {
-                if(json) {
-                    console.log("Items: ", json);
-                    const {data} = json as {data: Array<Item>};
-
-                    this.itemIndex = data
-                }
-            });
     }
 
     render() {
