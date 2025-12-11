@@ -13,6 +13,7 @@ import update from "./update";
 
 import { HomeViewElement } from "./views/home-view";
 import {HeaderElement} from "./components/raiders-header";
+import { ArcRaiderViewElement } from "./views/arc-raider-view";
 import { ItemViewElement } from "./views/item-view";
 
 const routes: Switch.Route[] = [
@@ -25,12 +26,16 @@ const routes: Switch.Route[] = [
         redirect: "/app"
     },
     {
-        path: "/app/items/",
-        view: (params: Switch.Params) => html`<item-view></item-view>`
+        path: "/app/items",
+        view: () => html`<item-view></item-view><h1>Basic Items Loaded</h1>`
     },
     {
         path: "/app/items/:id",
         view: (params: Switch.Params) => html`<item-view item-id=${params.id}></item-view>`
+    },
+    {
+        path: "/app/profile/:id",
+        view: (params: Switch.Params) => html`<profile-view user-id="${params.id}></profile-view>`
     }
 ];
 
@@ -64,6 +69,7 @@ define({
 
     // views
     "home-view": HomeViewElement,
+    "profile-view": ArcRaiderViewElement,
     "item-view": ItemViewElement
 });
 

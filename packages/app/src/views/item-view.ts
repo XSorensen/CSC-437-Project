@@ -1,16 +1,22 @@
 import {css, html, LitElement} from "lit";
-import {Auth, Observer} from "@calpoly/mustang";
-import {state} from "lit/decorators.js";
+import {Auth, Observer, View} from "@calpoly/mustang";
+import {state, property} from "lit/decorators.js";
 import {Item} from "server/models";
+
+import {Msg} from "../messages";
+import {Model} from "../model";
 
 import reset from "../styles/reset.css";
 import page from "../styles/page.css";
 
-export class ItemViewElement extends LitElement {
+export class ItemViewElement extends View<Model, Msg>{
     src = "/api/items"
 
     @state()
     itemIndex = new Array<Item>();
+
+    @property({attribute: "item-id"})
+    itemId?: string
 
     _authObserver = new Observer<Auth.Model>(
         this,
@@ -25,11 +31,28 @@ export class ItemViewElement extends LitElement {
                 {}
     }
 
+    constructor() {
+        super("raiders:model");
+    }
+
     connectedCallback() {
+        console.log("Connected Callback Called")
         super.connectedCallback();
-        this._authObserver.observe((auth: Auth.Model) => {
-            this._user = auth.user;
-            this.hydrate(this.src);
+        this._authObserver.observe(({ user }) => {
+            if(user?.authenticated) {
+                this._user = user;
+                this.dispatchMessage(["items/request", {}]);
+            } else {
+                this._user = undefined;
+            }
+        
+            /*
+            if(this.itemId) {
+                this.hydrate(`${this.src}/${this.itemId}`);
+            } else {
+                this.hydrate(this.src);
+            }
+                */
         })
     }
 
@@ -51,7 +74,7 @@ export class ItemViewElement extends LitElement {
     }
 
     render() {
-        const itemList = this.itemIndex.map(this.renderItem);
+        const itemList = this.itemIndex?.map(this.renderItem);
 
         return html`
             <main class="page">

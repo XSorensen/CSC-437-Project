@@ -1,7 +1,9 @@
-import { ArcRaider} from "server/models";
+import { ArcRaider, Item } from "server/models";
 
 export interface Model {
-    profile?: ArcRaider
+    profile?: ArcRaider;
+    darkModeEnabled?: Boolean;
+    itemsList?: Array<Item>
 }
 
 export const init: Model = {};

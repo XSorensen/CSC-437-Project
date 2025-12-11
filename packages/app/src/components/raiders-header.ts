@@ -5,7 +5,7 @@ import {
     Events,
     Observer,
     Auth,
-    View
+    View,
 } from "@calpoly/mustang";
 
 import {css, html, LitElement} from "lit";
@@ -14,24 +14,35 @@ import {state} from "lit/decorators.js";
 import { Model } from "../model.ts";
 import { Msg } from "../messages.ts";
 
+import {ArcRaider} from "server/models";
+
 // styles
 import reset from "../styles/reset.css.ts";
 import header from "../styles/header.css.ts";
 import page from "../styles/page.css.ts";
 import headings from "../styles/headings.css.ts";
 
-
 export class HeaderElement extends View<Model, Msg>{
 
     @state() loggedIn = false;
-    @state() userid?: string;
+    @state() userid?: string = "raider";
     @state() darkModeEnabled = false;
 
     constructor() {
         super("raiders:model");
     }
 
+    @state()
+    get profile(): ArcRaider | undefined {
+        return this.model.profile;
+    }
+
     render() {
+        const {userid} = this.profile || {};
+
+        console.log(this.profile);
+        console.log(this.model)
+
         return html`
             <header>
                     <a class="home-button" href="/">
@@ -40,11 +51,11 @@ export class HeaderElement extends View<Model, Msg>{
                     <img src="/icons/default_user_icon.svg" alt="User Icon" width="50" height="50">
 
                 <label class='dark-mode-switch'>
-                    <input type="checkbox" @change=${this.toggleDarkMode} autocomplete=${this.darkModeEnabled ? "on" : "off"}"></input>
+                    <input type="checkbox" @change=${this.toggleDarkMode} autocomplete=${this.model?.darkModeEnabled ? "on" : "off"}"></input>
                     Dark Mode
                 </label>
                 <a slot="actuator">
-                    Hello, ${this.userid || "raider"}
+                    Hello, ${userid || "Raider"}
                 </a>
                 ${this.loggedIn ?
                     this.renderSignOutButton() :
@@ -81,6 +92,9 @@ export class HeaderElement extends View<Model, Msg>{
 
             if(user && user.authenticated) {
                 this.loggedIn = true;
+                this.userid = user.username;
+
+                this.dispatchMessage(["profile/request", {userid: this.userid}]);
             } else {
                 this.loggedIn=false;
                 this.userid=undefined;
