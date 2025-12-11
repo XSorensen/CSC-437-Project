@@ -31,11 +31,6 @@ interface FilterItemFormData {
     wkbch_gunsmith?: boolean,
 }
 
-interface WorkbenchFilterData {
-    workbench: string,
-    active: boolean
-}
-
  interface CheckboxDetailsLookup {
     "field_name": string,
     "visible_name": string
@@ -128,10 +123,10 @@ export class ItemViewElement extends View<Model, Msg>{
         ]
 
         return stations.map(({field_name, visible_name}) => html`
-                    <label for="${field_name}">${visible_name}</label>
-                            <input type="checkbox" id="${field_name}" name="${field_name}" /><br>
-                    `
-                );
+            <label for="${field_name}">${visible_name}</label>
+                    <input type="checkbox" id="${field_name}" name="${field_name}" /><br>
+            `
+        );
     }
 
     renderRarityFilters() {
@@ -343,8 +338,8 @@ export class ItemViewElement extends View<Model, Msg>{
 
     static styles = [
         reset.styles,
-        page.styles,
         itemViewList.styles,
+        page.styles,
         css`
         :host {
             display:contents;

@@ -9,15 +9,13 @@ const styles = css`
     .row {
         display: grid;
         grid-template-columns: repeat(7, 1fr);
-        column-gap: 1rem;
-        
 
         & > dt {
             grid-column: 1;
         }
         
         & > * {
-            border: 3px solid black
+            border: 3px solid black;
             padding: 0.75rem;
         }
     }
