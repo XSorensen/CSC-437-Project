@@ -9,6 +9,8 @@ const styles = css`
     .row {
         display: grid;
         grid-template-columns: repeat(7, 1fr);
+        padding-left: 30px;
+        padding-right: 30px;
 
         & > dt {
             grid-column: 1;
@@ -17,9 +19,9 @@ const styles = css`
         & > * {
             border: 3px solid black;
             padding: 0.75rem;
+            font-color: var(--color-text);
         }
     }
-
 `
 
 export default {styles}

@@ -10,6 +10,7 @@ export class HomeViewElement extends LitElement {
 
     render() {
         return html`
+        <!---
         <ul>
             <li>
                 <svg class="icon">
@@ -48,16 +49,27 @@ export class HomeViewElement extends LitElement {
                 <a href="./game.html">Game Page</a>
             </li>
         </ul>
+        --->
+
+        <h3>Project Description</h3>
+        <p>Arc Raiders is a new video game which tasks players to journey onto the hostile surface in search of loot. 
+        While on the surface, raiders must scavenge appartment buildings and water treatment facilities while avoiding being taken out by
+        the surface robots or even other players. The game is very focused on the items you collect, but there are so 
+        many items to collect that it can be difficult to keep track of which ones are important. Also, seemlingly innccuous items like the "Rusted Gear"
+        appear useless until they are need to upgrade your workstation. This website seeks to supply a helpful interface that provides quick item filtering 
+        along with item tracking in the future. Currently, all links below lead to the /app/items page where you can view all items in the game,
+        or filter them down to a more manageable list</p>
 
         <div class="nav-box">
             <div class="nav-box-entry">
-                <a href="./active_hunts.html">Active Hunts</a>
+                <a href="/app/items">Items List</a>
             </div>
             <div class="nav-box-entry">
-                <a href="./new_hunt.html">Start New Hunt</a>
+                <a href="/app/items">Track Items</a>
             </div>
+
             <div class="nav-box-entry">
-                <a href="./individual_target.html">Target Individual Pokemon</a>
+                <a href="/app/items">Track Workbench Progress</a>
             </div>
         </div>
 

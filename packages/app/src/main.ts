@@ -27,7 +27,7 @@ const routes: Switch.Route[] = [
     },
     {
         path: "/app/items",
-        view: () => html`<item-view></item-view><h1>Basic Items Loaded</h1>`
+        view: () => html`<item-view></item-view>`
     },
     {
         path: "/app/items/:id",

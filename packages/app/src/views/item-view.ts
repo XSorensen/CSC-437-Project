@@ -84,7 +84,7 @@ export class ItemViewElement extends View<Model, Msg>{
                     @submit=${(e: SubmitEvent) => this.handleSubmit(e)}
                     @reset=${(e: any) => this.handleReset(e)}
                 >   
-                    <label for="name_search">Search For Name:</label>
+                    <label for="name_search">Search by Item Name:</label>
                         <input type="text" id="name_search" name="name_search" /><br>
 
                     <h3>Rarity Filters:</h3><br>
@@ -123,8 +123,8 @@ export class ItemViewElement extends View<Model, Msg>{
         ]
 
         return stations.map(({field_name, visible_name}) => html`
-            <label for="${field_name}">${visible_name}</label>
-                    <input type="checkbox" id="${field_name}" name="${field_name}" /><br>
+            <input type="checkbox" id="${field_name}" name="${field_name}" />
+            <label for="${field_name}">${visible_name}</label><br>
             `
         );
     }
@@ -139,8 +139,8 @@ export class ItemViewElement extends View<Model, Msg>{
         ]
 
         return rarities.map(({field_name, visible_name}) => html`
-            <label for="${field_name}">${visible_name}</label>
-                    <input type="checkbox" id="${field_name}" name="${field_name}" /><br>
+            <input type="checkbox" id="${field_name}" name="${field_name}" />
+            <label for="${field_name}">${visible_name}</label><br>
             `
         );
     }

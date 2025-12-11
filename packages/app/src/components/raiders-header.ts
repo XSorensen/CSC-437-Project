@@ -45,15 +45,16 @@ export class HeaderElement extends View<Model, Msg>{
 
         return html`
             <header>
-                    <a class="home-button" href="/">
-                        Pokedex Completion Helper
-                    </a>
-                    <img src="/icons/default_user_icon.svg" alt="User Icon" width="50" height="50">
+                <a class="home-button" href="/">
+                    Arc Raiders Field Guide
+                </a>
 
                 <label class='dark-mode-switch'>
                     <input type="checkbox" @change=${this.toggleDarkMode} autocomplete=${this.model?.darkModeEnabled ? "on" : "off"}"></input>
                     Dark Mode
                 </label>
+                    <img src="/icons/default_user_icon.svg" alt="User Icon" width="50" height="50">
+                
                 <a slot="actuator">
                     Hello, ${userid || "Raider"}
                 </a>
@@ -76,12 +77,6 @@ export class HeaderElement extends View<Model, Msg>{
             height: var(--header-height, 64px);
         }
         `
-        /*
-        css`
-        :host {
-            display:contents;
-        }*/,
-        
     ];
 
     _authObserver = new Observer<Auth.Model>(this, "raiders:auth")
